@@ -14,7 +14,7 @@ function App() {
           name="Home"
           component={Home}
           options={{
-            title: 'My home',
+            title: 'Black Jack',
             headerStyle: {
               backgroundColor: '#f4511e',
             },

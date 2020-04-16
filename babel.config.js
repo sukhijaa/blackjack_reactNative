@@ -10,6 +10,7 @@ module.exports = {
       'module-resolver',
       {
         alias: {
+          '@assets': './assets',
           components: './src/components',
           config: './src/config',
           lib: './src/lib',
