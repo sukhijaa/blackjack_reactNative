@@ -6,10 +6,10 @@ export const actionTypeCreator = action => ({
   RESET: `${action}_RESET`,
 });
 
-export const actionCreator = (actionType) => ({
-  Trigger: reqData => ({ reqData, type: actionType.TRIGGER }),
-  Loading: () => ({ type: actionType.LOADING }),
-  Success: resData => ({ resData, type: actionType.SUCCESS }),
+export const actionCreator = actionType => ({
+  Trigger: payload => ({ payload, type: actionType.TRIGGER }),
+  Loading: loading => ({ type: actionType.LOADING, loading }),
+  Success: payload => ({ payload, type: actionType.SUCCESS }),
   Failure: error => ({ error, type: actionType.FAILURE }),
   Reset: () => ({ type: actionType.RESET }),
 });

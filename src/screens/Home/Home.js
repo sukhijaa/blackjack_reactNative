@@ -8,6 +8,7 @@ import { userDisplayNameSelector } from './selector';
 import { createStructuredSelector } from 'reselect';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserNameAction } from './actions';
+import { startGameAction } from '../Game/actions';
 
 const stateSelector = createStructuredSelector({
   displayName: userDisplayNameSelector,
@@ -18,7 +19,8 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const handleStartGame = () => {
-    navigate('Game');
+    dispatch(startGameAction.Trigger());
+    navigate('Game', { displayName });
   };
 
   const handleNameChange = newName => {
@@ -28,8 +30,10 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.logoImage} source={LogoImage} />
-      <Text style={styles.text}>Welcome To BlackJack</Text>
+      <ScrollView>
+        <Image style={styles.logoImage} source={LogoImage} />
+        <Text style={styles.text}>Welcome To BlackJack</Text>
+      </ScrollView>
       <TextInput
         label="Enter Your Name"
         style={styles.textInput}

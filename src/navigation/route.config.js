@@ -11,5 +11,8 @@ export const HOME_ROUTE = {
 export const GAME_ROUTE = {
   name: 'Game',
   component: Game,
-  options: { title: GAME_TITLE_TEXT, headerLeft: null },
+  options: navigationObj => {
+    const { route } = navigationObj;
+    return { title: route.params.displayName, headerLeft: null };
+  },
 };

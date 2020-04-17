@@ -7,9 +7,9 @@ const initialState = {
 
 const homeReducer = produce((draft, action) => {
   switch (action.type) {
-    case SET_USER_NAME_ACTIONTYPE.TRIGGER:
     case SET_USER_NAME_ACTIONTYPE.SUCCESS: {
       draft.displayName = action.payload;
+      break;
     }
     default: {
       return draft;
