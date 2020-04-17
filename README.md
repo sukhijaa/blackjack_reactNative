@@ -1,77 +1,90 @@
+# Simple BlackJack
 
-🚀 React Native Boilerplate - April 2020
-===========================================
-
-[![React Native](https://img.shields.io/badge/React%20Native-v0.62.0-green.svg)](https://facebook.github.io/react-native/)
-[![React Navigation V5](https://img.shields.io/badge/React%20Navigation-v5.1-blue.svg)](https://reactnavigation.org/)
-
-
-React Native Boilerplate is a starting point for React Native application. This project is configured with redux, redux saga 
-and redux persist. Uses latest version of react-navigation (v5)
-
-<p float="left">
-<a href='http://redux.js.org'><img src='https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67' height='60' alt='Redux Logo' aria-label='redux.js.org' /></a>
- 
-<a href='https://redux-saga.js.org/'><img src='https://camo.githubusercontent.com/4354872161943c4ae2ceec2a946dec85b96799b8/68747470733a2f2f72656475782d736167612e6a732e6f72672f6c6f676f2f303830302f52656475782d536167612d4c6f676f2d4c616e6473636170652e706e67' height='60' alt='Redux Logo' aria-label='redux-saga.js.org/' /></a>
-
-<a href='https://callstack.github.io/react-native-paper/'><img src='https://raw.githubusercontent.com/callstack/react-native-paper/master/docs/assets/images/paper-logo.svg?sanitize=true' height='110' alt='Redux Logo' aria-label='https://callstack.github.io/react-native-paper/' /></a>
-</p>
-
-## Scalability Factor
-
-This Type based Architecture scales smoothly for small - medium apps. If you guys are building a very large application I would suggest using the following feature based architecture which will be more developer friendly with ease of scaling.
-
-[React-Native-Feature-BoilerPlate](https://github.com/victorkvarghese/react-native-feature-boilerplate)
-
-## Projects using this BoilerPlate
-* [MediBuddy](https://github.com/victorkvarghese/MediBuddy)
-* [react-native-messenger](https://github.com/victorkvarghese/react-native-messenger)
-* [rn-coffee](https://github.com/victorkvarghese/rn-coffee)
-
-
-
-
-## Features
-
-* Uses [React Hooks](https://reactjs.org/docs/hooks-intro.html)
-* [React Navigation](https://reactnavigation.org/) 
-* [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) 
-* [React Native Paper](https://callstack.github.io/react-native-paper/) 
-* [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) 
-* [Redux](http://redux.js.org/) with [hooks](https://react-redux.js.org/api/hooks) support
-* [Redux Saga](https://redux-saga.js.org/)
-* [Redux Persist](https://github.com/rt2zz/redux-persist/)
-* [Jest](https://facebook.github.io/jest/)
-* [Eslint](http://eslint.org/) ([Airbnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb))
-
-
-## Prerequisites
-
-* [Node](https://nodejs.org) v8.10 (it is recommended to install it via [NVM](https://github.com/creationix/nvm))
-* [Yarn](https://yarnpkg.com/)
-* A development machine set up for React Native by following [these instructions](https://facebook.github.io/react-native/docs/getting-started.html)
+This application is very simple BlackJack game where the whole state is controlled by Redux.
 
 ## Getting Started
 
-1. Clone this repo, `git clone https://github.com/victorkvarghese/react-native-boilerplate.git <your project name>`
-2. Go to project's root directory, `cd <your project name>`
-3. Remove `.git` folder,  `rm -rf .git`
-4. Use [React Native Rename](https://github.com/junedomingo/react-native-rename) to update project name `$ npx react-native-rename <newName>`
-5. Run `yarn` or `npm install` to install dependencies
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes
+
+### Prerequisites
+
+```
+1. Node - v9+ - https://nodejs.org/en/download/
+2. React Native Setup - https://reactnative.dev/docs/environment-setup
+3. iOS / Andoid Simulator - https://reactnative.dev/docs/environment-setup
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+#### Setting the system up
+Assumes that you have installed all the tools mentioned above 
+
+```
+1. Clone this repo - git clone https://github.com/sukhijaa/blackjack_reactNative.git
+2. $ cd blackJackRN
+3. Install all dependencies - $ yarn
+4. $ cd ios
+5. $ pod install
+6. $ cd ..
+7. $ yarn ios - To run on iOS emulator
+8. $ yarn android - To run on Android Emulator
+```
+
+### And coding style tests
+
+```
+$ yarn eslint -> To get list of linting errors
+```
+
+## About the Project
+
+Whole project is based on React Hooks API.  
+All data interactions happens only through redux store  
+Code is well configured to enable multi-player mode with minimal code changes  
+
+react-native-paper -> UI Library Used  
+redux -> Used for State Management  
+redux-Sage -> For Managing SideEffects  
+redux-persist -> Used with Async Storage and hence store redux state in Async Storage  
+redux-logger -> So that all actions are logged into console  
+reselect -> For selectors creation  
+react-navigation -> For navigation stack  
+immer -> To maintain immutability of store  
 
 
+## HOW TO
+1. Play : 
+```
+a. Open the App and Enter your name
+b. Click Start Game
+```
 
-6. Start the packager with `npm start`
-7. Connect a mobile device to your development machine
-8. Run the test application:
-  * On Android:
-    * Run `react-native run-android`
-  * On iOS:
-    * Open `ios/YourReactProject.xcworkspace` in Xcode
-    * Hit `Run` after selecting the desired device
-9. Enjoy!!!
+2. Hit : 
+```
+Click on Hit Button and you will be served a card
+```
+3. Stand : 
+```
+Click on Stand and Dealer will take his turn and result will be declared
+```
+4. Quit
+```
+Click on Quit Game
+```
+
+## TODOs
+```
+- [ ] Add Theming Support
+- [ ] Add Error Fallback
+- [ ] Add Card Animations
+- [ ] Validate everything using Flow
+- [ ] Add internationalization support
+
+```
+## Authors
+
+Abhishek Sukhija - abhisukhija@ymail.com
 
 
-## Contributing
-
-PRs are welcome
