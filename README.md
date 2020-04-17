@@ -23,7 +23,7 @@ Assumes that you have installed all the tools mentioned above
 
 ```
 1. Clone this repo - git clone https://github.com/sukhijaa/blackjack_reactNative.git
-2. $ cd blackJackRN
+2. $ cd blackJack_reactNative
 3. Install all dependencies - $ yarn
 4. $ cd ios
 5. $ pod install
