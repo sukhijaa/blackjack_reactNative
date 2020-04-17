@@ -1,14 +1,18 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 import {
+  GAME_COMPLETED_ACTIONTYPE,
   GIVE_DEALER_CARD_ACTIONTYPE,
   GIVE_PLAYER_A_CARD_ACTIONTYPE,
+  PLAYER_STAND_ACTIONTYPE,
   QUIT_GAME_ACTIONTYPE,
   START_GAME_ACTIONTYPE,
   TOGGLE_QUIT_MODAL_ACTIONTYPE,
 } from './actionTypes';
 import {
+  gameCompletedAction,
   giveDealerACardAction,
   givePlayerACardAction,
+  playerStandAction,
   quitGameAction,
   setMasterDeckAction,
   startGameAction,
@@ -20,16 +24,18 @@ import {
   PLAYER_STARTING_CARDS_COUNT,
 } from '../../utils/constants';
 
+function* perFormLoadingSuccess(action, paylaod) {
+  yield put(action.Loading(true));
+  yield put(action.Success(paylaod));
+  yield put(action.Loading(false));
+}
+
 function* givePlayerACardSaga() {
-  yield put(givePlayerACardAction.Loading(true));
-  yield put(givePlayerACardAction.Success());
-  yield put(givePlayerACardAction.Loading(false));
+  yield call(perFormLoadingSuccess, givePlayerACardAction);
 }
 
 function* giveDealerACardSaga() {
-  yield put(giveDealerACardAction.Loading(true));
-  yield put(giveDealerACardAction.Success());
-  yield put(giveDealerACardAction.Loading(false));
+  yield call(perFormLoadingSuccess, giveDealerACardAction);
 }
 
 function* handleGameStartSaga() {
@@ -45,19 +51,24 @@ function* handleGameStartSaga() {
   for (let i = 0; i < DEALER_STARTING_CARDS_COUNT; i++) {
     yield put(giveDealerACardAction.Trigger());
   }
+  yield put(startGameAction.Success());
   yield put(startGameAction.Loading(false));
 }
 
 function* quitGameSaga() {
-  yield put(quitGameAction.Loading(true));
-  yield put(quitGameAction.Success());
-  yield put(quitGameAction.Loading(false));
+  yield call(perFormLoadingSuccess, quitGameAction);
 }
 
 function* toggleModalSaga(action) {
-  yield put(toggleQuitModalAction.Loading(true));
-  yield put(toggleQuitModalAction.Success(action.payload));
-  yield put(toggleQuitModalAction.Loading(false));
+  yield call(perFormLoadingSuccess, toggleQuitModalAction, action.payload);
+}
+
+function* playerStandSaga() {
+  yield call(perFormLoadingSuccess, playerStandAction);
+}
+
+function* gameCompletedSaga() {
+  yield call(perFormLoadingSuccess, gameCompletedAction);
 }
 
 export default function* gameSagas() {
@@ -66,4 +77,6 @@ export default function* gameSagas() {
   yield takeLatest(GIVE_DEALER_CARD_ACTIONTYPE.TRIGGER, giveDealerACardSaga);
   yield takeLatest(QUIT_GAME_ACTIONTYPE.TRIGGER, quitGameSaga);
   yield takeLatest(TOGGLE_QUIT_MODAL_ACTIONTYPE.TRIGGER, toggleModalSaga);
+  yield takeLatest(PLAYER_STAND_ACTIONTYPE.TRIGGER, playerStandSaga);
+  yield takeLatest(GAME_COMPLETED_ACTIONTYPE.TRIGGER, gameCompletedSaga);
 }

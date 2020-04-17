@@ -16,6 +16,14 @@ export const getCardImageFileName = cardId => {
   return `${suitInitial}${number}`;
 };
 
+export const getCardValue = cardId => {
+  const indexedValue = cardId - 1;
+  const normalizedValue = Math.floor(indexedValue % 52);
+  const cardDisplayNumber = (normalizedValue % 13) + 1;
+
+  return Math.min(cardDisplayNumber, 10);
+};
+
 export const getShuffledMainDeckOfCards = () => {
   const arrayLength = 52 * TOTAL_DECKS_COUNT;
   let iterator = 0;

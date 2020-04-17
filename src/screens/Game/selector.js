@@ -27,3 +27,8 @@ export const modalTextSelector = createSelector(
   gameSubStoreSelector,
   subStore => subStore.modalText,
 );
+
+export const dealersTurnSelector = createSelector(
+  gameSubStoreSelector,
+  subStore => subStore.dealersTurn,
+);

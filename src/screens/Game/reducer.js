@@ -1,12 +1,15 @@
 import produce from 'immer';
 import {
+  GAME_COMPLETED_ACTIONTYPE,
   GIVE_DEALER_CARD_ACTIONTYPE,
   GIVE_PLAYER_A_CARD_ACTIONTYPE,
+  PLAYER_STAND_ACTIONTYPE,
   QUIT_GAME_ACTIONTYPE,
   SET_DEALER_CARDS_ACTIONTYPE,
   SET_MASTER_DECK_ACTIONTYPE,
   SET_PLAYER_CARDS_ACTIONTYPE,
-  START_GAME_ACTIONTYPE, TOGGLE_QUIT_MODAL_ACTIONTYPE,
+  START_GAME_ACTIONTYPE,
+  TOGGLE_QUIT_MODAL_ACTIONTYPE,
 } from './actionTypes';
 
 const initialState = {
@@ -15,12 +18,17 @@ const initialState = {
   playerCards: [],
   dealerCards: [],
   modalText: '',
+  dealersTurn: false,
 };
 
 const gameReducer = produce((draft, action) => {
   switch (action.type) {
     case START_GAME_ACTIONTYPE.SUCCESS: {
       draft.gameInProgress = true;
+      break;
+    }
+    case GAME_COMPLETED_ACTIONTYPE.SUCCESS: {
+      draft.gameInProgress = false;
       break;
     }
     case SET_MASTER_DECK_ACTIONTYPE.SUCCESS: {
@@ -58,6 +66,10 @@ const gameReducer = produce((draft, action) => {
     }
     case TOGGLE_QUIT_MODAL_ACTIONTYPE.SUCCESS: {
       draft.modalText = draft.modalText ? '' : action.payload;
+      break;
+    }
+    case PLAYER_STAND_ACTIONTYPE.SUCCESS: {
+      draft.dealersTurn = true;
       break;
     }
     default: {

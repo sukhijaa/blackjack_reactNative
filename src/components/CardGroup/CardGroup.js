@@ -29,9 +29,9 @@ const CardGroup = props => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {imageGroups.map((cardGroup, index) => {
+        {imageGroups.map((cardGroup, grpIndex) => {
           return (
-            <View style={styles.imageGroup}>
+            <View key={grpIndex} style={styles.imageGroup}>
               {cardGroup.map((cardNumber, index) => {
                 const isLastImage = lastImageInverted
                   ? index === cardGroup.length - 1

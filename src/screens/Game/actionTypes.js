@@ -2,6 +2,7 @@ import { actionTypeCreator } from 'store/actionCreator';
 
 export const START_GAME_ACTIONTYPE = actionTypeCreator('game/startGame');
 export const QUIT_GAME_ACTIONTYPE = actionTypeCreator('game/quitGame');
+export const GAME_COMPLETED_ACTIONTYPE = actionTypeCreator('game/completed');
 export const SET_MASTER_DECK_ACTIONTYPE = actionTypeCreator(
   'game/setMasterDeck',
 );
@@ -20,3 +21,4 @@ export const GIVE_DEALER_CARD_ACTIONTYPE = actionTypeCreator(
   'game/giveCardDealer',
 );
 export const TOGGLE_QUIT_MODAL_ACTIONTYPE = actionTypeCreator('game/quitModal');
+export const PLAYER_STAND_ACTIONTYPE = actionTypeCreator('game/playerStand');
