@@ -1,28 +1,48 @@
 import { StyleSheet } from 'react-native';
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveFontSize,
+  responsiveHeight,
+} from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%',
+    width: '100%',
     alignItems: 'center',
     backgroundColor: 'black',
+    display: 'flex',
+    flexDirection: 'column',
   },
-  text: {
-    color: 'white',
-    fontSize: 40,
-    marginTop: 10,
-    marginBottom: 20,
+  cardsArea: {
+    flexGrow: 100,
+    width: responsiveScreenWidth(100),
   },
-  logoImage: {
+  playerActions: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  actionButton: {
+    flexGrow: 100,
     margin: 20,
-    marginTop: 50,
+    borderRadius: 10,
   },
-  startGameButton: {
-    width: 200,
-    height: 100,
-    backgroundColor: 'orange',
+  actionButtonLabel: {
+    fontSize: responsiveFontSize(2),
   },
-  startGameButtonLabel: {
-    fontSize: 20,
+  actionButtonContent: {
+    height: 60,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  quitButton: {
+    width: responsiveScreenWidth(100) - 40,
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+  quitButtonLabel: {
+    fontSize: responsiveFontSize(2),
   },
 });
 
