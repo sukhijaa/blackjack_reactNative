@@ -75,14 +75,13 @@ Click on Quit Game
 ```
 
 ## TODOs
-```
+
 - [ ] Add Theming Support
 - [ ] Add Error Fallback
 - [ ] Add Card Animations
 - [ ] Validate everything using Flow
 - [ ] Add internationalization support
 
-```
 ## Authors
 
 Abhishek Sukhija - abhisukhija@ymail.com
