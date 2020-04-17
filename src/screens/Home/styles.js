@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     backgroundColor: 'black',
+    height: '100%'
   },
   text: {
     color: 'white',
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   logoImage: {
     margin: 20,
-    marginTop: 50
+    marginTop: 50,
   },
   startGameButton: {
     width: 200,
@@ -22,8 +22,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'orange',
   },
   startGameButtonLabel: {
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
+  textInput: {
+    margin: 20,
+    width: '60%'
+  },
 });
 
 export default styles;
