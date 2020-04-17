@@ -1,7 +1,7 @@
 import { getCardImageFileName } from './cardsUtils';
 
-export default cardId => {
-  const imageName = getCardImageFileName(cardId);
+export default (cardId = null) => {
+  const imageName = cardId === null ? 'back' : getCardImageFileName(cardId);
   switch (imageName) {
     case 'c1':
       return require('@assets/card-BMPs/11_of_c1.bmp');
@@ -112,6 +112,7 @@ export default cardId => {
       return require('@assets/card-BMPs/10_of_d12.bmp');
     case 'd13':
       return require('@assets/card-BMPs/10_of_d13.bmp');
+    case 'back':
     default:
       return require('@assets/card-BMPs/back.bmp');
   }

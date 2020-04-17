@@ -8,6 +8,6 @@ export const CARD_SUITS = {
   3: 'Clubs',
 };
 
-export const PLAYER_STARTING_CARDS_COUNT = 3;
-export const DEALER_STARTING_CARDS_COUNT = 3;
+export const PLAYER_STARTING_CARDS_COUNT = 2;
+export const DEALER_STARTING_CARDS_COUNT = 2;
 export const CARD_BMP_DIRECTORY_PATH = '@assets/card-BMPs/';

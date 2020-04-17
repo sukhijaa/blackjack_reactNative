@@ -5,13 +5,13 @@ import styles from './styles';
 import CardImages from '../../utils/CardImages';
 
 const SingleCardImage = props => {
-  const { cardNumber } = props;
+  const { cardNumber, inverted } = props;
   const [image, setImage] = useState(null);
 
   useEffect(() => {
-    const currentImage = CardImages(cardNumber);
+    const currentImage = CardImages(inverted ? null : cardNumber);
     setImage(currentImage);
-  }, [cardNumber]);
+  }, [cardNumber, inverted]);
 
   if (!image) {
     return null;
@@ -25,10 +25,12 @@ const SingleCardImage = props => {
 
 SingleCardImage.propTypes = {
   cardNumber: PropTypes.number,
+  inverted: PropTypes.bool,
 };
 
 SingleCardImage.defaultProps = {
   cardNumber: 1,
+  inverted: false,
 };
 
 export default SingleCardImage;

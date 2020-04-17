@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   dealerArea: {
-    flexGrow: 100,
+    height: '50%',
     width: '100%',
   },
   userArea: {

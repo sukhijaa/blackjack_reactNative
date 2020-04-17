@@ -4,23 +4,36 @@ import styles from './styles';
 import { View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { CardGroup } from 'components';
+import { createStructuredSelector } from 'reselect';
+import { playerCardsSelector } from '../../selector';
+import { useDispatch, useSelector } from 'react-redux';
+import { givePlayerACardAction } from '../../actions';
+
+const stateSelector = createStructuredSelector({
+  userCards: playerCardsSelector,
+});
 
 const PlayerArea = props => {
   const { quitGame } = props;
+  const { userCards } = useSelector(stateSelector);
+  const dispatch = useDispatch();
 
   const doNothing = () => {};
+  const handleHit = () => {
+    dispatch(givePlayerACardAction.Trigger());
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.cardsArea}>
-        <CardGroup cardsToDisplay={[10, 15]} />
+        <CardGroup cardsToDisplay={userCards} />
       </View>
       <View style={styles.actionsArea}>
         <View style={styles.playerActions}>
           <Button
             mode="contained"
             uppercase={true}
-            onPress={doNothing}
+            onPress={handleHit}
             contentStyle={styles.actionButtonContent}
             labelStyle={styles.actionButtonLabel}
             style={styles.actionButton}>

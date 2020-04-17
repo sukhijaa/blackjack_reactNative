@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import {
   responsiveScreenWidth,
-  responsiveFontSize,
+  responsiveFontSize, responsiveScreenHeight,
 } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   cardsArea: {
-    flexGrow: 100,
+    maxHeight: responsiveScreenHeight(25),
     width: '100%',
     margin: 10,
   },
