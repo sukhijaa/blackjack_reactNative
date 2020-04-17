@@ -5,6 +5,7 @@ import { Button } from 'react-native-paper';
 import { navigate } from 'navigation/NavigationService';
 import { useDispatch } from 'react-redux';
 import { quitGameAction } from './actions';
+import CardGameArea from './components/CardGameArea/CardGame';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -20,9 +21,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.cardsArea}>
-          <Text>Cards</Text>
-      </View>
+      <CardGameArea/>
       <View style={styles.playerActions}>
         <Button
           mode="contained"

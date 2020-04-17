@@ -1,9 +1,7 @@
 import { StyleSheet } from 'react-native';
 import {
-  responsiveScreenHeight,
   responsiveScreenWidth,
   responsiveFontSize,
-  responsiveHeight,
 } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
@@ -14,10 +12,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     display: 'flex',
     flexDirection: 'column',
-  },
-  cardsArea: {
-    flexGrow: 100,
-    width: responsiveScreenWidth(100),
   },
   playerActions: {
     display: 'flex',
