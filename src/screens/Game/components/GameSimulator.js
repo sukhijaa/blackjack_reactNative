@@ -70,14 +70,17 @@ const GameSimulator = () => {
     // If both got sum === 21, then whoever has lesser cards win. User given preference
     if (dealerCardSum === userCardSum && dealerCardSum === 21) {
       resultFinalized();
+      return;
     }
 
     // If sum of anyone > 21, he loses
     if (dealerCardSum > 21) {
       resultFinalized(true);
+      return;
     }
     if (userCardSum > 21) {
       resultFinalized(false);
+      return;
     }
 
     if (dealersTurn) {
