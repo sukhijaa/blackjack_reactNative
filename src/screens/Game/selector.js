@@ -22,3 +22,8 @@ export const dealerCardsSelector = createSelector(
   gameSubStoreSelector,
   subStore => subStore.dealerCards,
 );
+
+export const modalTextSelector = createSelector(
+  gameSubStoreSelector,
+  subStore => subStore.modalText,
+);

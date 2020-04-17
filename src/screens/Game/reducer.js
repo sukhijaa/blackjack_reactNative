@@ -6,7 +6,7 @@ import {
   SET_DEALER_CARDS_ACTIONTYPE,
   SET_MASTER_DECK_ACTIONTYPE,
   SET_PLAYER_CARDS_ACTIONTYPE,
-  START_GAME_ACTIONTYPE,
+  START_GAME_ACTIONTYPE, TOGGLE_QUIT_MODAL_ACTIONTYPE,
 } from './actionTypes';
 
 const initialState = {
@@ -14,6 +14,7 @@ const initialState = {
   mainDeck: [],
   playerCards: [],
   dealerCards: [],
+  modalText: '',
 };
 
 const gameReducer = produce((draft, action) => {
@@ -54,6 +55,10 @@ const gameReducer = produce((draft, action) => {
     }
     case QUIT_GAME_ACTIONTYPE.SUCCESS: {
       return initialState;
+    }
+    case TOGGLE_QUIT_MODAL_ACTIONTYPE.SUCCESS: {
+      draft.modalText = draft.modalText ? '' : action.payload;
+      break;
     }
     default: {
       return draft;

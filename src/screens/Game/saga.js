@@ -1,8 +1,10 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import {
   GIVE_DEALER_CARD_ACTIONTYPE,
-  GIVE_PLAYER_A_CARD_ACTIONTYPE, QUIT_GAME_ACTIONTYPE,
+  GIVE_PLAYER_A_CARD_ACTIONTYPE,
+  QUIT_GAME_ACTIONTYPE,
   START_GAME_ACTIONTYPE,
+  TOGGLE_QUIT_MODAL_ACTIONTYPE,
 } from './actionTypes';
 import {
   giveDealerACardAction,
@@ -10,6 +12,7 @@ import {
   quitGameAction,
   setMasterDeckAction,
   startGameAction,
+  toggleQuitModalAction,
 } from './actions';
 import { getShuffledMainDeckOfCards } from '../../utils/cardsUtils';
 import {
@@ -30,6 +33,7 @@ function* giveDealerACardSaga() {
 }
 
 function* handleGameStartSaga() {
+  yield put(quitGameAction.Trigger());
   yield put(startGameAction.Loading(true));
   const masterDeck = getShuffledMainDeckOfCards();
   yield put(setMasterDeckAction.Success(masterDeck));
@@ -50,9 +54,16 @@ function* quitGameSaga() {
   yield put(quitGameAction.Loading(false));
 }
 
+function* toggleModalSaga(action) {
+  yield put(toggleQuitModalAction.Loading(true));
+  yield put(toggleQuitModalAction.Success(action.payload));
+  yield put(toggleQuitModalAction.Loading(false));
+}
+
 export default function* gameSagas() {
   yield takeLatest(START_GAME_ACTIONTYPE.TRIGGER, handleGameStartSaga);
   yield takeLatest(GIVE_PLAYER_A_CARD_ACTIONTYPE.TRIGGER, givePlayerACardSaga);
   yield takeLatest(GIVE_DEALER_CARD_ACTIONTYPE.TRIGGER, giveDealerACardSaga);
   yield takeLatest(QUIT_GAME_ACTIONTYPE.TRIGGER, quitGameSaga);
+  yield takeLatest(TOGGLE_QUIT_MODAL_ACTIONTYPE.TRIGGER, toggleModalSaga);
 }

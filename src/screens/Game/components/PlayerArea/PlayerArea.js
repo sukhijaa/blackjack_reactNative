@@ -7,7 +7,7 @@ import { CardGroup } from 'components';
 import { createStructuredSelector } from 'reselect';
 import { playerCardsSelector } from '../../selector';
 import { useDispatch, useSelector } from 'react-redux';
-import { givePlayerACardAction } from '../../actions';
+import { givePlayerACardAction, toggleQuitModalAction } from '../../actions';
 
 const stateSelector = createStructuredSelector({
   userCards: playerCardsSelector,
@@ -18,9 +18,12 @@ const PlayerArea = props => {
   const { userCards } = useSelector(stateSelector);
   const dispatch = useDispatch();
 
-  const doNothing = () => {};
   const handleHit = () => {
     dispatch(givePlayerACardAction.Trigger());
+  };
+
+  const handleStand = () => {
+    dispatch(toggleQuitModalAction.Trigger('Hurrraaaayyy!! You Won'));
   };
 
   return (
@@ -42,7 +45,7 @@ const PlayerArea = props => {
           <Button
             mode="contained"
             uppercase={true}
-            onPress={doNothing}
+            onPress={handleStand}
             contentStyle={styles.actionButtonContent}
             labelStyle={styles.actionButtonLabel}
             style={styles.actionButton}>

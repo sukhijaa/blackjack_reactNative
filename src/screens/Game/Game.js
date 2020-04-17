@@ -1,19 +1,21 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View } from 'react-native';
 import styles from './styles';
-import { Divider } from 'react-native-paper';
+import { Portal, Modal } from 'react-native-paper';
 import { navigate } from 'navigation/NavigationService';
 import { useDispatch } from 'react-redux';
-import { quitGameAction } from './actions';
+import { quitGameAction, toggleQuitModalAction } from './actions';
 import PlayerArea from './components/PlayerArea/PlayerArea';
 import DealerArea from './components/DealerArea/DealerArea';
+import QuitGameModal from './components/QuitGameModal/QuitGameModal';
 
 export default function Home() {
   const dispatch = useDispatch();
 
   const handleGameQuit = () => {
-    dispatch(quitGameAction.Trigger());
-    navigate('Home');
+    dispatch(
+      toggleQuitModalAction.Trigger('Are you sure you wish to quit the game'),
+    );
   };
 
   return (
@@ -24,6 +26,7 @@ export default function Home() {
       <View style={styles.userArea}>
         <PlayerArea quitGame={handleGameQuit} />
       </View>
+      <QuitGameModal />
     </View>
   );
 }

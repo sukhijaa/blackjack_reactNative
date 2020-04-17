@@ -19,3 +19,4 @@ export const GIVE_PLAYER_A_CARD_ACTIONTYPE = actionTypeCreator(
 export const GIVE_DEALER_CARD_ACTIONTYPE = actionTypeCreator(
   'game/giveCardDealer',
 );
+export const TOGGLE_QUIT_MODAL_ACTIONTYPE = actionTypeCreator('game/quitModal');
