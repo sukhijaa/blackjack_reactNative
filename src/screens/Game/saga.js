@@ -1,13 +1,15 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import {
   GIVE_DEALER_CARD_ACTIONTYPE,
-  GIVE_PLAYER_A_CARD_ACTIONTYPE,
+  GIVE_PLAYER_A_CARD_ACTIONTYPE, QUIT_GAME_ACTIONTYPE,
   START_GAME_ACTIONTYPE,
 } from './actionTypes';
 import {
   giveDealerACardAction,
   givePlayerACardAction,
-  setMasterDeckAction, startGameAction,
+  quitGameAction,
+  setMasterDeckAction,
+  startGameAction,
 } from './actions';
 import { getShuffledMainDeckOfCards } from '../../utils/cardsUtils';
 import {
@@ -42,8 +44,15 @@ function* handleGameStartSaga() {
   yield put(startGameAction.Loading(false));
 }
 
+function* quitGameSaga() {
+  yield put(quitGameAction.Loading(true));
+  yield put(quitGameAction.Success());
+  yield put(quitGameAction.Loading(false));
+}
+
 export default function* gameSagas() {
   yield takeLatest(START_GAME_ACTIONTYPE.TRIGGER, handleGameStartSaga);
   yield takeLatest(GIVE_PLAYER_A_CARD_ACTIONTYPE.TRIGGER, givePlayerACardSaga);
   yield takeLatest(GIVE_DEALER_CARD_ACTIONTYPE.TRIGGER, giveDealerACardSaga);
+  yield takeLatest(QUIT_GAME_ACTIONTYPE.TRIGGER, quitGameSaga);
 }

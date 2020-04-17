@@ -1,6 +1,7 @@
 import { actionTypeCreator } from 'store/actionCreator';
 
 export const START_GAME_ACTIONTYPE = actionTypeCreator('game/startGame');
+export const QUIT_GAME_ACTIONTYPE = actionTypeCreator('game/quitGame');
 export const SET_MASTER_DECK_ACTIONTYPE = actionTypeCreator(
   'game/setMasterDeck',
 );

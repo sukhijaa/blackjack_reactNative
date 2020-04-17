@@ -1,6 +1,8 @@
 import produce from 'immer';
 import {
-  GIVE_DEALER_CARD_ACTIONTYPE, GIVE_PLAYER_A_CARD_ACTIONTYPE,
+  GIVE_DEALER_CARD_ACTIONTYPE,
+  GIVE_PLAYER_A_CARD_ACTIONTYPE,
+  QUIT_GAME_ACTIONTYPE,
   SET_DEALER_CARDS_ACTIONTYPE,
   SET_MASTER_DECK_ACTIONTYPE,
   SET_PLAYER_CARDS_ACTIONTYPE,
@@ -49,6 +51,9 @@ const gameReducer = produce((draft, action) => {
       draft.playerCards = playerCards;
       draft.mainDeck = mainDecksCards;
       break;
+    }
+    case QUIT_GAME_ACTIONTYPE.SUCCESS: {
+      return initialState;
     }
     default: {
       return draft;
