@@ -1,8 +1,4 @@
 import { StyleSheet } from 'react-native';
-import {
-  responsiveScreenWidth,
-  responsiveFontSize,
-} from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,16 +9,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'black',
   },
-  divider: {
-    backgroundColor: 'white',
-  },
   dealerArea: {
     flexGrow: 100,
     width: '100%',
   },
   userArea: {
-    height: '65%',
+    height: '50%',
+    maxHeight: '65%',
     width: '100%',
+    borderTopColor: 'white',
+    borderTopWidth: 2,
+    margin: 10,
   },
 });
 

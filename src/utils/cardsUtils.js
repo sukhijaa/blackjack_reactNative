@@ -2,12 +2,18 @@ import { TOTAL_DECKS_COUNT, CARD_SUITS } from './constants';
 
 export const getCardName = cardId => {
   const indexedValue = cardId - 1;
-  const normalizedValue = indexedValue / 52;
-  const groupVal = normalizedValue / 13;
+  const normalizedValue = Math.floor(indexedValue % 52);
+  const groupVal = Math.floor(normalizedValue / 13);
   const groupName = CARD_SUITS[groupVal];
   const cardDisplayNumber = (normalizedValue % 13) + 1;
 
-  return `${cardDisplayNumber} of ${groupName}`;
+  return { suit: groupName, number: cardDisplayNumber };
+};
+
+export const getCardImageFileName = cardId => {
+  const { suit, number } = getCardName(cardId);
+  const suitInitial = suit.charAt(0).toLowerCase();
+  return `${suitInitial}${number}`;
 };
 
 export const getShuffledMainDeckOfCards = () => {

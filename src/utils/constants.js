@@ -10,3 +10,4 @@ export const CARD_SUITS = {
 
 export const PLAYER_STARTING_CARDS_COUNT = 3;
 export const DEALER_STARTING_CARDS_COUNT = 3;
+export const CARD_BMP_DIRECTORY_PATH = '@assets/card-BMPs/';

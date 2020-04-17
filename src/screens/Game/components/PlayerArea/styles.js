@@ -14,10 +14,16 @@ const styles = StyleSheet.create({
   },
   cardsArea: {
     flexGrow: 100,
+    width: '100%',
+    margin: 10,
+  },
+  actionsArea: {
+    height: 'auto',
   },
   playerActions: {
     display: 'flex',
     flexDirection: 'row',
+    height: 'auto',
   },
   actionButton: {
     flexGrow: 100,
@@ -33,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   quitButton: {
+    height: 'auto',
     width: responsiveScreenWidth(100) - 40,
     marginHorizontal: 20,
     marginVertical: 10,

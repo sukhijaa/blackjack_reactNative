@@ -21,7 +21,6 @@ export default function Home() {
       <View style={styles.dealerArea}>
         <DealerArea />
       </View>
-      <Divider style={styles.divider} />
       <View style={styles.userArea}>
         <PlayerArea quitGame={handleGameQuit} />
       </View>

@@ -3,14 +3,19 @@ import { responsiveHeight } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    display: 'flex',
+    flex: 1,
+    marginHorizontal: 30,
+    marginVertical: 20,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    resizeMode: 'contain',
+    overflow: 'hidden',
   },
   cardImage: {
-    margin: 20,
-    marginTop: 50,
-    height: responsiveHeight(10),
+    marginLeft: 20,
+    width: 125,
+    height: 150,
   },
 });
 
